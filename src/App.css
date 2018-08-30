@@ -1,28 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+/* import image from "../public/background.jpg" */
+
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  widows: 100vw;
+  background-image: url(/background.jpg);
+  background-size: cover;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.aqiBox {
+  background-color: rgba(78, 180, 206, 0.8);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.weatherBox {
+  background-color: rgba(194, 93, 93, 0.8)
+}
+
+.aqiBox, .weatherBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  width: 260px;
+  height: 260px;
   color: white;
+  padding: 20px;
+}
+button {
+  border: solid rgb(92, 167, 197) 1px;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 1.2em;
+  color: rgb(84, 181, 219);
+  transition: all 400ms;
+  font-family: 'Playfair Display', serif;
 }
 
-.App-title {
-  font-size: 1.5em;
+button:hover {
+  background-color: white;
+  color: seagreen;
 }
 
-.App-intro {
-  font-size: large;
+img {
+  width: 100px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.temp {
+  font-size: 7em;
+}
+
+span {
+  font-size: .12em;
+}
+
+.boxContainer {
+  display: flex;
+}
+
+.header {
+  width: 570px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  color: rgb(47, 125, 151);
 }
