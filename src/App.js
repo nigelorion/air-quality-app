@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Moment from 'react-moment';
+import moment from 'moment-timezone';
 
 class App extends Component {
   
@@ -8,8 +10,6 @@ class App extends Component {
 
     this.apiKey = "pq68pi9kvatpF6Yof"
     this.weatherApiKey = "3d406b2a3a9a4218a4abb5827a949634"
-
-  
 
     this.state = {
       aqiData: {},
@@ -23,7 +23,7 @@ class App extends Component {
     this.weatherForcast()
   }
   nearestCity() {
-    console.log(this.apiKey)
+  
     this.setState({loaded: false});
     fetch("https://api.airvisual.com/v2/nearest_city?key=" + this.apiKey)
     .then(response => response.json())
@@ -36,9 +36,10 @@ class App extends Component {
         city: "Portland"
       });
     })
+
   }
   weatherForcast() {
-    console.log(this.weatherApiKey)
+
     this.setState({weatherLoaded: false});
     fetch("https://api.weatherbit.io/v2.0/current?ip=auto&key=" + this.weatherApiKey)
     .then(response => response.json())
@@ -49,32 +50,39 @@ class App extends Component {
       })
       console.log(this.state.weatherData[0])
     })
-  }
-  searchcity() {
-    
 
+  }
+
+  timeConverter(time) {
+  
+    let timezone = this.state.weatherData[0].timezone;
+
+    let result = moment.utc(time, 'HH:mm').tz(timezone).format('h:mm a');
+
+    return result
+  
   }
 
 
   convertToF(celsius) {
-    let fahrenheit;
-    fahrenheit = (celsius * (9/5)) + 32;
+
+    let fahrenheit = (celsius * (9/5)) + 32;
     fahrenheit = Math.round(fahrenheit);
-    console.log(fahrenheit)
     return fahrenheit;
+
   }
   render() {
     return (
       <div className="App"> 
         <div className="header">
           <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
-          <button onClick={this.nearestCity.bind(this)}>update</button>
-
+          <button onClick={this.componentDidMount.bind(this)}>update</button>
         </div>
         <div className="boxContainer">
           <div className="aqiBox">
             {!this.state.loaded &&
-              <img src={"/lg.rainy-preloader.gif"}></img>
+              <img src={"/lg.rainy-preloader.gif"}alt="loading"></img>
+        
             }
             {this.state.loaded &&
               <div>
@@ -82,20 +90,19 @@ class App extends Component {
               </div>
             }
           </div>
-          {this.state.weatherLoaded &&
           <div className="weatherBox">
-            <p className="temp">{this.convertToF(this.state.weatherData[0].app_temp)}<span className="degrees">  degrees</span></p>
+            {!this.state.weatherLoaded &&
+              <img src={"/lg.rainy-preloader.gif"} alt="loading"></img>
+            }
+            {this.state.weatherLoaded &&
+              <div>
+                <p className="temp">{this.convertToF(this.state.weatherData[0].app_temp)}<span className="degrees">  degrees</span></p>
+                <p>{this.timeConverter(this.state.weatherData[0].sunrise)} sunrise</p>
+                <p>{this.timeConverter(this.state.weatherData[0].sunset)} sunset</p>
+              </div>
+            }
           </div>
-          }
-
         </div>
-        
-        {/* <div className="searchBox">
-        <input value={this.state.city} onChange={this.searchcity}></input>
-        <button>search</button>
-        </div> */}
-     
-  
       </div>
     );
   }

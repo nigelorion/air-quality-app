@@ -8,7 +8,7 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  widows: 100vw;
+  width: 100vw;
   background-image: url(/background.jpg);
   background-size: cover;
   font-family: 'Playfair Display', serif;
@@ -53,6 +53,7 @@ img {
 
 .temp {
   font-size: 7em;
+  margin: 0;
 }
 
 span {
@@ -61,6 +62,7 @@ span {
 
 .boxContainer {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .header {
@@ -68,4 +70,21 @@ span {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   color: rgb(47, 125, 151);
+}
+
+@media only screen and (max-width: 700px) {
+  .header {
+    width: 100%;
+    padding: 5%;
+  }
+
+  .aqiBox, .weatherBox {
+    width: 100%;
+  }
+
+  .app {
+    height: 100%;
+    width: 100%;
+  }
+
 }
