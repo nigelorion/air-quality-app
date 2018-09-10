@@ -8,8 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.apiKey = "pq68pi9kvatpF6Yof"
-    this.weatherApiKey = "3d406b2a3a9a4218a4abb5827a949634"
+    this.aqiKey = `${process.env.REACT_APP_aqi_key}`;
+    this.weatherKey = `${process.env.REACT_APP_weather_key}`;
 
     this.state = {
       aqiData: {},
@@ -21,11 +21,12 @@ class App extends Component {
   componentDidMount() {
     this.nearestCity()
     this.weatherForcast()
+    console.log(this.weatherKey)
   }
   nearestCity() {
   
     this.setState({loaded: false});
-    fetch("https://api.airvisual.com/v2/nearest_city?key=" + this.apiKey)
+    fetch("https://api.airvisual.com/v2/nearest_city?key=" + this.aqiKey)
     .then(response => response.json())
     .then(data => {
       console.log(data.data)
@@ -41,7 +42,7 @@ class App extends Component {
   weatherForcast() {
 
     this.setState({weatherLoaded: false});
-    fetch("https://api.weatherbit.io/v2.0/current?ip=auto&key=" + this.weatherApiKey)
+    fetch("https://api.weatherbit.io/v2.0/current?ip=auto&key=" + this.weatherKey)
     .then(response => response.json())
     .then(data => {
       this.setState({
