@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 
-/* import image from "../public/background.jpg" */
-
 .App {
   display: flex;
   justify-content: center;
@@ -60,31 +58,40 @@ span {
   font-size: .12em;
 }
 
-.boxContainer {
+.container {
   display: flex;
   flex-wrap: wrap;
+  max-width: 620px;
+}
+
+.dataBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .header {
-  width: 570px;
+  /* width: 570px; */
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   color: rgb(47, 125, 151);
+  margin: 5px;
+  width: 100%;
 }
+
 
 @media only screen and (max-width: 700px) {
   .header {
     width: 100%;
-    padding: 5%;
+
   }
 
   .aqiBox, .weatherBox {
     width: 100%;
   }
 
-  .app {
-    height: 100%;
-    width: 100%;
+  .App {
+    justify-content: flex-start;
   }
 
 }
