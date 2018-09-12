@@ -21,6 +21,7 @@ class App extends Component {
     this.nearestCity()
     this.weatherForcast()
     this.getGeo();
+    console.log(moment().format('LLL'))
   }
 
   nearestCity() {
@@ -82,14 +83,32 @@ class App extends Component {
       <div className="App"> 
         <div className="container">
           <div className="header">
-            <p>{this.state.aqiData.city}, {this.state.aqiData.state}</p>
-            {this.state.geoLoaded && 
+            <div>
+            <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
+            <h3>{moment().format('LLL')}</h3>
+            {/* {this.state.geoLoaded && 
               <div>
                 <p>{this.state.geoData.coords.longitude}</p>
                 <p>{this.state.geoData.coords.latitude}</p>
               </div>
-            }
+            } */}
             <button onClick={this.componentDidMount.bind(this)}>update</button>
+
+            </div>
+            <div>
+              {!this.state.weatherLoaded &&
+                  <img src={"/lg.rainy-preloader.gif"} alt="loading"></img>
+                }
+                {this.state.weatherLoaded &&
+                  <div>
+                    <p>{this.timeConverter(this.state.weatherData[0].sunrise)} sunrise</p>
+                    <p>{this.timeConverter(this.state.weatherData[0].sunset)} sunset</p>
+                  </div>
+                }
+
+            </div>
+            
+           
           </div>
           <div className="dataBox">
             <div className="aqiBox">
@@ -110,8 +129,8 @@ class App extends Component {
               {this.state.weatherLoaded &&
                 <div>
                   <p className="temp">{this.convertToF(this.state.weatherData[0].app_temp)}<span className="degrees">  degrees</span></p>
-                  <p>{this.timeConverter(this.state.weatherData[0].sunrise)} sunrise</p>
-                  <p>{this.timeConverter(this.state.weatherData[0].sunset)} sunset</p>
+                  {/* <p>{this.timeConverter(this.state.weatherData[0].sunrise)} sunrise</p>
+                  <p>{this.timeConverter(this.state.weatherData[0].sunset)} sunset</p> */}
                 </div>
               }
             </div>

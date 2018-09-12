@@ -32,17 +32,17 @@
   padding: 20px;
 }
 button {
-  border: solid rgb(92, 167, 197) 1px;
-  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  background-color:white;
   font-size: 1.2em;
   color: rgb(84, 181, 219);
   transition: all 400ms;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display';
 }
 
 button:hover {
-  background-color: white;
-  color: seagreen;
+  background-color: lightblue;
+  color: white;
 }
 
 img {
@@ -72,11 +72,13 @@ span {
 
 .header {
   /* width: 570px; */
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(92, 139, 86, 0.8);
   padding: 20px;
-  color: rgb(47, 125, 151);
+  color: white;
   margin: 5px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 
