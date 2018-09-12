@@ -20,8 +20,8 @@ class App extends Component {
   componentDidMount() {
     this.nearestCity()
     this.weatherForcast()
-    this.getGeo();
-    console.log(moment().format('LLL'))
+    // this.getGeo();
+    // console.log(moment().format('LLL'))
   }
 
   nearestCity() {
@@ -84,15 +84,15 @@ class App extends Component {
         <div className="container">
           <div className="header">
             <div>
-            <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
-            <h3>{moment().format('LLL')}</h3>
-            {/* {this.state.geoLoaded && 
-              <div>
-                <p>{this.state.geoData.coords.longitude}</p>
-                <p>{this.state.geoData.coords.latitude}</p>
-              </div>
-            } */}
-            <button onClick={this.componentDidMount.bind(this)}>update</button>
+              <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
+              <h3>{moment().format('LLL')}</h3>
+              {/* {this.state.geoLoaded && 
+                <div>
+                  <p>{this.state.geoData.coords.longitude}</p>
+                  <p>{this.state.geoData.coords.latitude}</p>
+                </div>
+              } */}
+              <button onClick={this.componentDidMount.bind(this)}>update</button>
 
             </div>
             <div>
