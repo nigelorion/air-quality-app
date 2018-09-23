@@ -20,8 +20,7 @@ class App extends Component {
   componentDidMount() {
     this.nearestCity()
     this.weatherForcast()
-    this.getGeo();
-    console.log(moment().format('LLL'))
+    // this.getGeo();
   }
 
   nearestCity() {
@@ -78,24 +77,42 @@ class App extends Component {
     }
   }
 
+  airQualityStatus(aqiVal) {
+    
+    let answer;
+
+    if (aqiVal <= 60) {
+      answer = "Get outside and breathe that fresh air!"
+    } else if (aqiVal > 60 && aqiVal < 130) {
+      answer = "Take it easy, the air qaulity is less than ideal!"
+    } else if (aqiVal > 130 && aqiVal < 200) {
+      answer = "It is getting bad, stay inside!"
+    } else {
+      answer = "Don't even bother breathing..."
+    }
+    
+    return answer;
+
+  }
+
   render() {
     return (
       <div className="App"> 
         <div className="container">
           <div className="header">
-            <div>
-            <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
-            <h3>{moment().format('LLL')}</h3>
-            {/* {this.state.geoLoaded && 
-              <div>
-                <p>{this.state.geoData.coords.longitude}</p>
-                <p>{this.state.geoData.coords.latitude}</p>
-              </div>
-            } */}
-            <button onClick={this.componentDidMount.bind(this)}>update</button>
+            <div className="left">
+              <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
+              <h3>{moment().format('LLL')}</h3>
+              {/* {this.state.geoLoaded && 
+                <div>
+                  <p>{this.state.geoData.coords.longitude}</p>
+                  <p>{this.state.geoData.coords.latitude}</p>
+                </div>
+              } */}
+              <button onClick={this.componentDidMount.bind(this)}>update</button>
 
             </div>
-            <div>
+            <div className="right">
               {!this.state.weatherLoaded &&
                   <img src={"/lg.rainy-preloader.gif"} alt="loading"></img>
                 }
@@ -118,6 +135,7 @@ class App extends Component {
               }
               {this.state.loaded &&
                 <div>
+                  <p>{this.airQualityStatus(this.state.aqiData.current.pollution.aqius)}</p>
                   <p  className="temp">{this.state.aqiData.current.pollution.aqius}<span className="degrees">  air quality</span></p>
                 </div>
               }

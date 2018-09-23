@@ -81,11 +81,19 @@ span {
   justify-content: space-between;
 }
 
+.left, .right {
+  flex: 1;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media only screen and (max-width: 700px) {
   .header {
     width: 100%;
-
   }
 
   .aqiBox, .weatherBox {
@@ -94,6 +102,8 @@ span {
 
   .App {
     justify-content: flex-start;
+    height: 100%;
+    width: 100%
   }
 
 }
