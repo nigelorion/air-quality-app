@@ -21,6 +21,7 @@ class App extends Component {
     this.nearestCity()
     this.weatherForcast()
     // this.getGeo();
+    // console.log(moment().format('LLL'))
   }
 
   nearestCity() {
