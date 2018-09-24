@@ -45,10 +45,6 @@ button:hover {
   color: white;
 }
 
-img {
-  width: 100px;
-}
-
 .temp {
   font-size: 7em;
   margin: 0;
@@ -71,7 +67,6 @@ span {
 }
 
 .header {
-  /* width: 570px; */
   background-color: rgba(112, 84, 131, 0.8);
   padding: 20px;
   color: white;
@@ -89,6 +84,10 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+img {
+  width: 100px;
 }
 
 @media only screen and (max-width: 700px) {

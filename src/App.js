@@ -29,12 +29,9 @@ class App extends Component {
     fetch("https://api.airvisual.com/v2/nearest_city?key=" + this.aqiKey)
     .then(response => response.json())
     .then(data => {
-      console.log(data.data)
       this.setState({ 
         aqiData: data.data,
-        loaded: true,
-        state: "Oregon",
-        city: "Portland"
+        loaded: true
       });
     })
   }
@@ -48,7 +45,6 @@ class App extends Component {
         weatherData: data.data,
         weatherLoaded: true
       })
-      console.log(this.state.weatherData[0])
     })
   }
 
@@ -79,9 +75,7 @@ class App extends Component {
   }
 
   airQualityStatus(aqiVal) {
-    
     let answer;
-
     if (aqiVal <= 60) {
       answer = "Get outside and breathe that fresh air!"
     } else if (aqiVal > 60 && aqiVal < 130) {
@@ -91,9 +85,7 @@ class App extends Component {
     } else {
       answer = "Don't even bother breathing..."
     }
-    
     return answer;
-
   }
 
   render() {
@@ -111,7 +103,6 @@ class App extends Component {
                 </div>
               } */}
               <button onClick={this.componentDidMount.bind(this)}>update</button>
-
             </div>
             <div className="right">
               {!this.state.weatherLoaded &&
@@ -123,10 +114,7 @@ class App extends Component {
                     <p>{this.timeConverter(this.state.weatherData[0].sunset)} sunset</p>
                   </div>
                 }
-
             </div>
-            
-           
           </div>
           <div className="dataBox">
             <div className="aqiBox">
@@ -148,8 +136,6 @@ class App extends Component {
               {this.state.weatherLoaded &&
                 <div>
                   <p className="temp">{this.convertToF(this.state.weatherData[0].app_temp)}<span className="degrees">  degrees</span></p>
-                  {/* <p>{this.timeConverter(this.state.weatherData[0].sunrise)} sunrise</p>
-                  <p>{this.timeConverter(this.state.weatherData[0].sunset)} sunset</p> */}
                 </div>
               }
             </div>
