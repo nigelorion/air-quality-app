@@ -29,6 +29,10 @@ button:hover {
   background-color: white;
 }
 
+button:focus {
+  outline: 0;
+}
+
 img {
   width: 100px;
 }
@@ -40,7 +44,8 @@ img {
   flex-direction: row;
   border-radius: 35px 5px 35px 5px;
   flex-wrap: wrap;
-  width: 70%;
+  width: 50%;
+  min-width: 800px;
   min-height: 520px;
 }
 
@@ -76,22 +81,65 @@ span {
   align-items: center;
   border: solid 2px rgba(57, 74, 80, 0.548);
   margin: 10px;
+
 }
 
 .daysBox {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
 }
 
 .day {
-  text-align: center;
   background-color: rgba(42, 83, 94, 0.507);
   border-radius: 5px;
   flex: 1;
-  font-size: .6em;
+  font-size: .5em;
   margin: 1%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
+
+}
+
+.weatherBoxInner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.conditions {
+  /* border: solid 1px red; */
+  font-size: 2em;
+  font-style: italic;
+}
+
+.temp, .conditions  {
+  flex: 1;
+}
+
+.dayData {
+  margin: 2px;
+}
+
+.dayTemp {
+  font-size: 1.8em;
+}
+
+.lowTemp {
+  font-size: .6em;
+  margin: 5px;
+  opacity: .6;
 }
 
 @media only screen and (max-width: 900px) {
@@ -103,6 +151,7 @@ span {
     background-color: rgba(0, 0, 0, 0.753);
     border-radius: 0;
     border: none;
+    min-width: 300px;
   }
 
   .daysBox {
@@ -111,8 +160,15 @@ span {
   }
 
   .forcastBox {
-    margin: 0;
+    display: none;
   }
+
+  .temp, .conditions  {
+    flex-grow: 1;
+    flex: none;
+  }
+
+
 
   /* .day {
     flex: 0;

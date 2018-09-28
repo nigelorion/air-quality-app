@@ -118,24 +118,7 @@ class App extends Component {
     return (
       <div className="App"> 
         <div className="container">
-          <div className="forcastBox">
-            {!this.state.forcastLoaded &&
-              <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
-            }
-            {this.state.forcastLoaded &&
-              <div className="daysBox">
-                {this.state.forcastData.map((day, i) => {
-                  return (
-                    <div className="day">  
-                      <p key={i}>{this.dayConverter(day.datetime)}</p>
-                      <p>{this.convertToF(day.max_temp)}</p> 
-                    </div> 
-                  )
-                })
-                }
-              </div>
-            }
-          </div>
+         
           <div className="header">
             <button onClick={this.componentDidMount.bind(this)}>update</button>
             <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
@@ -156,17 +139,6 @@ class App extends Component {
               </div>
             } */}
           </div>
-          <div className="weatherBox">
-            {!this.state.weatherLoaded &&
-                <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
-              }
-              {this.state.weatherLoaded &&
-                <div className="weatherBoxInner">
-                  <p className="temp">{this.convertToF(this.state.weatherData[0].app_temp)}<span className="degrees">  degrees</span></p>
-                  <p>{this.state.weatherData[0].weather.description}</p>
-                </div>
-              }
-          </div>
           <div className="aqiBox">
             {!this.state.loaded &&
               <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
@@ -178,6 +150,37 @@ class App extends Component {
               </div>
             }
           </div>
+          <div className="weatherBox">
+            {!this.state.weatherLoaded &&
+              <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
+            }
+            {this.state.weatherLoaded &&
+              <div className="weatherBoxInner">
+                <p className="temp">{this.convertToF(this.state.weatherData[0].app_temp)}<span className="degrees">  degrees</span></p>
+                <p className="conditions">{this.state.weatherData[0].weather.description}</p>
+                <div className="forcastBox">
+                  {!this.state.forcastLoaded &&
+                    <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
+                  }
+                  {this.state.forcastLoaded &&
+                    <div className="daysBox">
+                      {this.state.forcastData.map((day, i) => {
+                        return (
+                          <div className="day">  
+                            <p className="dayData" key={i}>{this.dayConverter(day.datetime)}</p>
+                            <p className="dayData dayTemp">{this.convertToF(day.max_temp)}<span className="lowTemp">{this.convertToF(day.min_temp)}</span></p> 
+                            <p className="dayData">{day.weather.description}</p>
+                          </div> 
+                        )
+                      })
+                      }
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+          
         </div>
       </div>
     );
