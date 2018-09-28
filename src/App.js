@@ -24,7 +24,6 @@ class App extends Component {
     this.currentWeather()
     this.weatherForcast()
     // this.getGeo();
-    // console.log(moment().format('LLL'))
   }
 
   nearestCity() {
@@ -118,32 +117,27 @@ class App extends Component {
   render() {
     return (
       <div className="App"> 
-    
         <div className="container">
-        
-            <div className="forcastBox">
-              {!this.state.forcastLoaded &&
-                <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
-              }
-              {this.state.forcastLoaded &&
-                <div className="daysBox">
-                  {this.state.forcastData.map((day, i) => {
-                    return (
-                      <div className="day">  
-                        <p key={i}>{this.dayConverter(day.datetime)}</p>
-                        <p>{this.convertToF(day.max_temp)}</p> 
-                      </div> 
-                    )
-                  })
-                  }
-                </div>
-              }
-            
-            </div>
-  
+          <div className="forcastBox">
+            {!this.state.forcastLoaded &&
+              <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
+            }
+            {this.state.forcastLoaded &&
+              <div className="daysBox">
+                {this.state.forcastData.map((day, i) => {
+                  return (
+                    <div className="day">  
+                      <p key={i}>{this.dayConverter(day.datetime)}</p>
+                      <p>{this.convertToF(day.max_temp)}</p> 
+                    </div> 
+                  )
+                })
+                }
+              </div>
+            }
+          </div>
           <div className="header">
             <button onClick={this.componentDidMount.bind(this)}>update</button>
-            {/* <button onClick={this.weatherForcast.bind(this)}>forcast</button> */}
             <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
             <p>{moment().format('LLL')}</p>
             {!this.state.weatherLoaded &&
@@ -153,9 +147,7 @@ class App extends Component {
               <div>
                 <p>{this.timeConverter(this.state.weatherData[0].sunrise)} sunrise</p>
                 <p>{this.timeConverter(this.state.weatherData[0].sunset)} sunset</p>
-                
               </div>
-        
             }
             {/* {this.state.geoLoaded && 
               <div>
@@ -178,7 +170,6 @@ class App extends Component {
           <div className="aqiBox">
             {!this.state.loaded &&
               <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>
-        
             }
             {this.state.loaded &&
               <div>
