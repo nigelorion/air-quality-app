@@ -118,7 +118,6 @@ class App extends Component {
     return (
       <div className="App"> 
         <div className="container">
-         
           <div className="header">
             <button onClick={this.componentDidMount.bind(this)}>update</button>
             <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
@@ -145,7 +144,7 @@ class App extends Component {
             }
             {this.state.loaded &&
               <div>
-                <p  className="temp">{this.state.aqiData.current.pollution.aqius}<span className="degrees">  air quality</span></p>
+                <p className="temp">{this.state.aqiData.current.pollution.aqius}<span className="degrees">  air quality</span></p>
                 <p>{this.airQualityStatus(this.state.aqiData.current.pollution.aqius)}</p>
               </div>
             }
@@ -166,7 +165,7 @@ class App extends Component {
                     <div className="daysBox">
                       {this.state.forcastData.map((day, i) => {
                         return (
-                          <div className="day">  
+                          <div key={i} className="day">  
                             <p className="dayData" key={i}>{this.dayConverter(day.datetime)}</p>
                             <p className="dayData dayTemp">{this.convertToF(day.max_temp)}<span className="lowTemp">{this.convertToF(day.min_temp)}</span></p> 
                             <p className="dayData">{day.weather.description}</p>
