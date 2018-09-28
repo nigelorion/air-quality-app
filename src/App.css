@@ -46,7 +46,7 @@ button:hover {
 }
 
 .temp {
-  font-size: 7em;
+  font-size: 5em;
   margin: 0;
 }
 
@@ -72,8 +72,8 @@ span {
   color: white;
   margin: 5px;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  /*display: flex;
+  justify-content: space-between;*/
 }
 
 .left, .right {
