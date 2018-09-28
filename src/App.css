@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Cardo');
 
 .App {
   display: flex;
@@ -7,31 +7,41 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-image: url(/background.jpg);
+  background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2013/02/03/32757/5b6a6e3c31019db550216c48a51eaf39.jpg);
   background-size: cover;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2em;
+  font-family: 'Cardo', serif;
+  font-size: 1.4em;
+  color: rgb(236, 236, 236);
+ 
 }
 
-.aqiBox {
+/* .aqiBox {
   background-color: rgba(123, 186, 202, 0.8);
-}
+} */
 
-.weatherBox {
+/* .weatherBox {
   background-color: rgba(194, 150, 93, 0.8)
-}
-
+} */
+/* 
 .aqiBox, .weatherBox {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px;
-  width: 240px;
+  width: 240px;.dataB.dataBox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }ox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
   height: 240px;
   color: white;
   padding: 20px;
-}
-button {
+} */
+/* button {
   border: none;
   background-color:white;
   font-size: 1.2em;
@@ -43,66 +53,170 @@ button {
 button:hover {
   background-color: lightblue;
   color: white;
-}
+} */
 
-.temp {
+/* .temp {
   font-size: 7em;
   margin: 0;
-}
+} */
 
-span {
+/* span {
   font-size: .12em;
-}
+} */
 
-.container {
+/* .container {
   display: flex;
   flex-wrap: wrap;
   max-width: 580px;
-}
+} */
 
-.dataBox {
+/* .dataBox {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-}
+} */
 
-.header {
-  background-color: rgba(112, 84, 131, 0.8);
+/* .header {
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   color: white;
   margin: 5px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
-
+} */
+/* 
 .left, .right {
   flex: 1;
-}
+} */
 
-.right {
+/* .right {
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+button {
+  border: none;
+  font-size: 1em;
+  padding: 7px;
+  margin: 5px;
+  background-color: rgba(48, 75, 134, 0.697);
+  color: white;
+}
+
+button:hover {
+  color: lightblue;
+  background-color: white;
 }
 
 img {
   width: 100px;
 }
 
-@media only screen and (max-width: 700px) {
-  .header {
+.container {
+  background-color: rgba(0, 0, 0, 0.836);
+  padding: 10px;
+
+  /* min-height: 300px;
+  min-width: 1000px; */
+  display: flex;
+  flex-direction: row;
+  border-radius: 35px 5px 35px 5px;
+  flex-wrap: wrap;
+  width: 70%;
+  min-height: 520px;
+
+}
+
+.dataBox, .aqiBox, .weatherBox, .header {
+  /* border: solid 1px white; */
+  margin: 10px;
+  flex: 1;
+  padding: 10px;
+  background-color: rgba(48, 0, 71, 0.397);
+  border-radius: 30px 3px 30px 3px;
+  border: solid 2px rgba(105, 160, 177, 0.548);
+  text-align: center;
+  height: 300px;
+  min-width: 300px;
+}
+
+.temp {
+  font-size: 5em;
+  margin: 0;
+}
+
+
+span {
+  font-size: .2em;
+}
+
+.forcastBox {
+
+  height: 120px;
+  width: 100%;
+  display: flex;
+  /* padding: 10px;
+  margin: 10px; */
+  background-color: rgba(0, 22, 71, 0.397);
+  border-radius: 30px 3px 30px 3px;
+  border: solid 2px rgba(10, 143, 184, 0.548);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.daysBox {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.day {
+  text-align: center;
+  background-color: rgba(63, 63, 63, 0.507);
+  border-radius: 15%;
+  flex: 1;
+  font-size: .6em;
+  margin: 1%;
+
+}
+/* .weatherBoxInner {
+  display: flex;
+  flex-wrap: wrap;
+
+} */
+@media only screen and (max-width: 900px) {
+
+  .container {
+    flex-direction: column;
+    height: 100%;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.753);
+    border-radius: 0;
+    border: none;
   }
 
-  .aqiBox, .weatherBox {
+  /* .day {
+    font-size: .1em;
+  } */
+
+  /* .dataBox, .aqiBox, .weatherBox, .header {
+    border: none;
+    height: 100%;
+    flex: 0;
+  } */
+
+  .daysBox {
     width: 100%;
+    justify-content: flex-start;
   }
 
   .App {
-    justify-content: flex-start;
     height: 100%;
-    width: 100%
+    width: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
   }
 
 }
