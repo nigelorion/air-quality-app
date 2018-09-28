@@ -50,7 +50,7 @@ img {
   padding: 10px;
   background-color: rgba(48, 0, 71, 0.397);
   border-radius: 30px 3px 30px 3px;
-  border: solid 2px rgba(105, 160, 177, 0.548);
+  border: solid 2px rgba(57, 74, 80, 0.548);
   text-align: center;
   height: 300px;
   min-width: 300px;
@@ -71,10 +71,11 @@ span {
   display: flex;
   background-color: rgba(0, 22, 71, 0.397);
   border-radius: 30px 3px 30px 3px;
-  border: solid 2px rgba(10, 143, 184, 0.548);
   display: flex;
   justify-content: center;
   align-items: center;
+  border: solid 2px rgba(57, 74, 80, 0.548);
+  margin: 10px;
 }
 
 .daysBox {
@@ -85,8 +86,8 @@ span {
 
 .day {
   text-align: center;
-  background-color: rgba(63, 63, 63, 0.507);
-  border-radius: 15%;
+  background-color: rgba(42, 83, 94, 0.507);
+  border-radius: 5px;
   flex: 1;
   font-size: .6em;
   margin: 1%;
@@ -103,11 +104,20 @@ span {
     border-radius: 0;
     border: none;
   }
-  
+
   .daysBox {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
   }
+
+  .forcastBox {
+    margin: 0;
+  }
+
+  /* .day {
+    flex: 0;
+    min-width: 70px;
+  } */
 
   .App {
     height: 100%;
