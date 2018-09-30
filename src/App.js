@@ -121,7 +121,7 @@ class App extends Component {
           <div className="header">
             <button onClick={this.componentDidMount.bind(this)}>update</button>
             <h2>{this.state.aqiData.city}, {this.state.aqiData.state}</h2>
-            <p>{moment().format('LLL')}</p>
+            <p>{moment().format('LLLL')}</p>
             {!this.state.weatherLoaded &&
               <div className="sunriseSet">
                 <img className="loadingGif" src={"/lg.rainy-preloader.gif"} alt="loading"></img>

@@ -15,21 +15,23 @@
   background-size: cover;
   font-family: 'Cardo', serif;
   font-size: 1.4em;
-  color: rgb(236, 236, 236);
+  color: rgb(209, 209, 209);
  
 }
 
 button {
   border: none;
   font-size: 1em;
-  padding: 7px;
+  padding: 10px;
   margin: 5px;
   background-color: rgba(48, 75, 134, 0.697);
+  border: solid 1px rgba(255, 255, 255, 0.562);
   color: white;
+  font-family: inherit;
 }
 
 button:hover {
-  color: lightblue;
+  color: rgb(15, 74, 94);
   background-color: white;
 }
 
@@ -57,9 +59,9 @@ img {
   margin: 10px;
   flex: 1;
   padding: 10px;
-  background-color: rgba(48, 0, 71, 0.397);
+  background-color: rgba(7, 170, 199, 0.397);
   border-radius: 30px 3px 30px 3px;
-  border: solid 2px rgba(57, 74, 80, 0.548);
+  border: solid 2px rgba(123, 176, 196, 0.219);
   text-align: center;
   height: 300px;
   min-width: 300px;
@@ -70,11 +72,13 @@ img {
 
 .header {
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .temp {
   font-size: 5em;
   margin: 0;
+  color: rgb(142, 255, 240);
 }
 
 span {
@@ -92,6 +96,7 @@ span {
   align-items: center;
   border: solid 2px rgba(57, 74, 80, 0.548);
   margin: 10px;
+  max-width: 100%;
 
 }
 
@@ -105,7 +110,7 @@ span {
 }
 
 .day {
-  background-color: rgba(42, 83, 94, 0.507);
+  background-color: rgba(2, 12, 15, 0.349);
   border-radius: 5px;
   flex: 1;
   font-size: .5em;
@@ -154,8 +159,8 @@ span {
   opacity: .6;
 }
 
-.sunriseSet {
-  height: 100px;
+.sunriseSet p {
+  border-bottom: solid 1px rgba(255, 255, 255, 0.562);
 }
 
 @media only screen and (max-width: 900px) {
@@ -168,6 +173,7 @@ span {
     border-radius: 0;
     border: none;
     min-width: 300px;
+    padding: 0;
   }
 
   .daysBox {
@@ -175,14 +181,24 @@ span {
     justify-content: center;
   }
 
-  .forcastBox {
-    display: none;
+  .daysBox, .forcastBox {
+    overflow: auto;
   }
 
   .temp, .conditions  {
     flex-grow: 1;
     flex: none;
   }
+
+  .conditions {
+    font-size: 1.5em;
+  }
+
+  .weatherBox {
+    order: 2;
+
+  }
+
 
 
 
@@ -196,6 +212,8 @@ span {
     width: 100%;
     min-height: 100vh;
     min-width: 100vw;
+    background-image: none;
+    background-color: lightblue;
   }
 
 }
