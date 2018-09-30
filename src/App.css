@@ -103,7 +103,7 @@ span {
 .daysBox {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
   overflow: hidden;
   align-items: center;
@@ -183,6 +183,7 @@ span {
 
   .daysBox, .forcastBox {
     overflow: auto;
+    margin: 0;
   }
 
   .temp, .conditions  {
@@ -196,7 +197,12 @@ span {
 
   .weatherBox {
     order: 2;
+    padding: 0;
 
+  }
+
+  .aqiBox {
+    height: 100%;
   }
 
 
