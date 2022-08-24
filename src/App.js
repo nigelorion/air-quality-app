@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/header";
 import Aqi from "./components/aqi";
 import Forcast from "./components/forcast";
+require('dotenv').config()
 
 class App extends Component {
   constructor(props) {
@@ -22,29 +23,29 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.nearestCity();
+    // this.nearestCity();
     this.currentWeather();
     this.weatherForcast();
     // this.getGeo();
   }
 
-  nearestCity() {
-    this.setState({ loaded: false });
-    fetch("https://api.airvisual.com/v2/nearest_city?key=" + this.aqiKey)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          aqiData: data.data,
-          loaded: true
-        });
-        console.log(this.state.aqiData);
-      });
-  }
+  // nearestCity() {
+  //   this.setState({ loaded: false });
+  //   fetch("http://api.airvisual.com/v2/nearest_city?key=" + this.aqiKey)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       this.setState({
+  //         aqiData: data.data,
+  //         loaded: true
+  //       });
+  //       console.log(this.state.aqiData);
+  //     });
+  // }
 
   currentWeather() {
     this.setState({ weatherLoaded: false });
     fetch(
-      "https://api.weatherbit.io/v2.0/current?ip=auto&key=" + this.weatherKey
+      "http://api.weatherbit.io/v2.0/current?ip=auto&key=" + this.weatherKey
     )
       .then(response => response.json())
       .then(data => {
@@ -60,7 +61,7 @@ class App extends Component {
       forcastLoaded: false
     });
     fetch(
-      "https://api.weatherbit.io/v2.0/forecast/daily?ip=auto&key=" +
+      "http://api.weatherbit.io/v2.0/forecast/daily?ip=auto&key=" +
         this.weatherKey
     )
       .then(response => response.json())
